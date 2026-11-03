@@ -1,0 +1,216 @@
+/* ---------- Colors and sizes (change these first) ---------- */
+:root {
+  --ink: #111;
+  --paper: #fff;
+  --grey: #d2d2d2;
+  --light: #eee;
+  --shadow: 5px;
+  --gap: 20px;
+}
+
+/* ---------- Page and graph-paper background ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0px 0px;
+  color: var(--ink);
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(#e6e6e6 1px, transparent 1px),
+    linear-gradient(90deg, #e6e6e6 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.page { max-width: 980px; margin: 0 auto; }
+
+a { color: var(--ink); text-decoration-style: dotted; }
+
+p { margin: 0 0 10px; }
+
+/* ---------- Top row ---------- */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pill {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.pill.date { letter-spacing: 0; text-transform: none; border-radius: 4px; }
+
+.mail { font-size: 18px; }
+
+/* ---------- Address bar and nav buttons ---------- */
+.urlrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.urlbar {
+  flex: 1 1 320px;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: var(--paper);
+  padding: 8px 12px;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.nav { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.nav a {
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: var(--light);
+  padding: 6px 25px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.nav a:nth-child(even) { background: var(--grey); }
+.nav a:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+/* ---------- Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: var(--gap);
+  align-items: start;
+}
+
+.main { display: grid; gap: var(--gap); }
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  align-items: start;
+}
+
+/* ---------- Window boxes ---------- */
+.window {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: var(--shadow) var(--shadow) 0 var(--ink);
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: linear-gradient(#f4f4f4, #cdcdcd);
+  border-bottom: 2px solid var(--ink);
+  font-family: "Silkscreen", "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.content { padding: 14px; }
+
+/* ---------- Things inside windows ---------- */
+.photo {
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: #e8e8e8;
+  padding: 8px;
+  margin-bottom: 14px;
+}
+.photo img { display: block; width: 100%; height: auto; }
+
+.dashed-box {
+  border: 2px dashed var(--ink);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 14px 0;
+}
+.dashed-box p:last-child { margin-bottom: 0; }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--ink);
+}
+.row > :first-child { font-weight: bold; }
+
+/* Updates: date on the left, text on the right */
+.updates .row { justify-content: flex-start; }
+.updates .row b { flex: 0 0 92px; }
+
+/* Currently: label on the left, value on the right */
+.currently .row > :last-child { text-align: right; }
+
+/* Little pill buttons */
+.id-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+.id-button {
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: linear-gradient(90deg, #aaa 0 22%, var(--light) 22%);
+  padding: 0 10px 0 28px;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 760px) {
+  .layout, .pair { grid-template-columns: 1fr; }
+}
+
+/* ---------- Full-width address bar ---------- */
+.browser-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 24px;
+  background: linear-gradient(#f4f4f4, #cdcdcd);
+  border-bottom: 2px solid #111;
+}
+
+.bar-buttons { letter-spacing: 6px; font-weight: bold; }
+
+.address {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #111;
+  border-radius: 4px;
+  background: #fff;
+  padding: 6px 12px;
+  box-shadow: 3px 3px 0 #111;
+}
+
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.nav {display; flex; flex-wrap: wrap; gap: 12px; margin-top: 0px; }
+.nav {display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 0px; }
