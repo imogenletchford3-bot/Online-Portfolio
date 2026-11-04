@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style2.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style2.css">
-
 </head>
 <body>
 
-    <!--HEADING-->
-<h1 style="text-align: center;">Imogen Letchford's Portfolio</h1>
-    
-    <!--SUBHEADING-->
-<h2 style="text-align: center;">Game Designer and Producer</h2>
+    <!--TOP BOXES-->
+    <div class="top-boxes">
+        <h1 class="top-box">Imogen Letchford's Portfolio</h1>
+        <h2 class="top-box">Game Designer and Producer</h2>
+    </div>
 
     <!--BROWSER ADDRESS-->
     <div class="browser-bar">
@@ -25,47 +21,133 @@
             <span>★</span>
         </div>
 
-    <!--MENU BUTTONS-->>
-    <nav class="nav">
-        <a href="index.html">home</a>
-        <a href="#">projects</a>
-        <a href="#">about</a>
-        <a href="#">contact</a>
-    </nav>
-    </div>
-
+        <!--MENU BUTTONS-->
+        <nav class="nav">
+            <a href="index.html">home</a>
+            <a href="#">prototypes</a>
+            <a href="#">documentation</a>
+            <a href="#">about</a>
+            <a href="#">contact</a>
+        </nav>
     </div>
 
     <div class="page">
+        <div class="layout">
 
-    <div class="layout">
-    
-    <!--LEFT PROFILE BOX-->
-    <div class="window">
-        <div class="title-bar">
-            <span>▸ PROFILE</span>
-        </div>
-        <div class="content">
-            <p>Hey, thanks for stopping by</p>
-            <img src="https://placehold.co/170x170" alt="Profile Photo">
-            <div class="dashed-box">
-                <p>I like music and staying up too late.</p>
+            <!--LEFT PROFILE BOX-->
+            <div class="window">
+                <div class="title-bar">
+                    <span>▸ PROFILE</span>
+                </div>
+                <div class="content">
+                    <p>Hey, thanks for stopping by</p>
+                    <div class="photo">
+                        <img src="https://placehold.co/230x230" alt="Profile Photo">
+                    </div>
+                    
+                    <div class="dashed-box">
+                        <p>I like music and staying up too late.</p>
+                    </div>
+                    <div class="row"><span>age</span><span>21</span></div>
+                    <div class="row"><span>from</span><span>Melbourne</span></div>
+                </div>
             </div>
-            <div class="row">age 21</div>
-            <div class="row">from Melbourne</div>
-        </div>
+
+            <!--RIGHT MESSAGE BOX-->
+            <div class="main">
+                <section class="window">
+                    <div class="title-bar">
+                        <span>▸ WELCOME MESSAGE</span>
+                    </div>
+                    <div class="content">
+                        <p><b>bold.</b> more message</p>
+                        <div class="dashed-box">
+                            <p>Some other stuff.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!--PROJECTS BOX-->
+                <section class="window projects">
+                    <div class="title-bar">
+                        <span>▸ COMPLETE PROJECTS</span>
+                    </div>
+                    <div class="content">
+
+                        <div class="project">
+                            <img src="https://placehold.co/110x110" alt="Sanguis Noctis Screenshot">
+                            <div>
+                                <b>Sanguis Noctis</b>
+                                <p>Producer and Designer. 1v1 foosball-style PvP: play a Vampire or a Gargoyle and fill your blood fountain first.</p>
+                                <a class="btn" href="https://immidevs.itch.io" target="_black" rel="noopener">play on itch.io</a>
+                            </div>
+
+                            <div class="project">
+                                <img src="https://placehold.co/110x110" alt="Gear Shift Garrison screenshot">
+                                <div>
+                                    <b>Gear Shift Garrison</b>
+                                    <p>Producer and Lead Designer. Top-down tower defense in the Australian outback: drive your Ute, grab scrap, defend against Emus.</p>
+                                    <a class="btn" href="https://immidevs.itch.io" target="_blank" rel="noopener">play on itch.io</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!--BOTTOM TWO BOXES-->
+                <div class="pair">
+
+                    <section class="window updates">
+                        <div class="title-bar">
+                            <span>▸ WORDS</span>
+                        </div>
+                        <div class="content">
+                            <div class="row"><b>bah bah bah</b><span>boh boh boh</span></div>
+                            <div class="row"><b>bah bah bah</b><span>boh boh boh</span></div>
+                            <div class="row"><b>bah bah bah</b><span>boh boh boh</span></div>
+                        </div>
+                    </section>
+
+                    <section class="window currently">
+                        <div class="title-bar">
+                            <span>▸ WORDS</span>
+                        </div>
+                        <div class="content">
+                            <div class="row"><span>♥ boobies</span><span>yiddies</span></div>
+                            <div class="row"><span>♥ boobies</span><span>yiddies</span></div>
+                            <div class="row"><span>♥ boobies</span><span>yiddies</span></div>
+                            <div class="row"><span>♥ boobies</span><span>yiddies</span></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            
+            <!--RIGHT COLUMN-->
+            <aside class="side">
+
+                <section class="window">
+                    <div class="title-bar">
+                        <span>▸ MORE STUFF</span>
+                    </div>
+                    <div class="content">
+                        <div class="row"><span>bah</span><a href="https://immidevs.itch.io" target="_blank" rel="noopener">immidevs</a></span></div>
+                        <div class="row"><span>boh</span><a href="https://www.linkedin.com/in/imogen-letchford-225b57359" target="_blank" rel=:noopener">imogen</a></span></div>
+                    </div>
+                </section>
+
+                <section class="window">
+                    <div class="title-bar">
+                        <span>▸ MORE STUFF</span>
+                    </div>
+                    <div class="content">
+                        <p>imogen.letchford3@gmail.com</p>
+                    </div>
+                </section>
+            </aside>
+
+        </div> <!--closes .layout-->
     </div>
-    
-    <!--RIGHT MESSAGE BOX-->
-    <div class="main">
-        <section class="window">
-            <div class="title-bar">
-                <span>▸ WELCOME MESSAGE</span>
-            </div>
-            <div class="content">
-                <p><b>bold</b>more message</p>
-            </div>
-        </section>
-    </div>
+
 </body>
 </html>

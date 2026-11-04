@@ -93,18 +93,22 @@ p { margin: 0 0 10px; }
 /* ---------- Layout ---------- */
 .layout {
   display: grid;
-  grid-template-columns: 270px 1fr;
+  grid-template-columns: 270px 1fr 270px;
   gap: var(--gap);
-  align-items: start;
+  align-items: stretch;
 }
 
-.main { display: grid; gap: var(--gap); }
+.main {
+  display: grid;
+  gap: var(--gap);
+  grid-template-rows: auto auto 1fr;
+}
 
 .pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--gap);
-  align-items: start;
+  align-items: stretch;
 }
 
 /* ---------- Window boxes ---------- */
@@ -142,8 +146,8 @@ p { margin: 0 0 10px; }
 .dashed-box {
   border: 2px dashed var(--ink);
   border-radius: 10px;
-  padding: 12px;
-  margin: 14px 0;
+  padding: 10px;
+  margin: 14px 0px;
 }
 .dashed-box p:last-child { margin-bottom: 0; }
 
@@ -179,6 +183,11 @@ p { margin: 0 0 10px; }
 @media (max-width: 760px) {
   .layout, .pair { grid-template-columns: 1fr; }
 }
+/* ---------- Half Page ---------- */
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 270px 1fr; }
+  .side { grid-column: 1 / -1;}
+}
 
 /* ---------- Full-width address bar ---------- */
 .browser-bar {
@@ -207,10 +216,66 @@ p { margin: 0 0 10px; }
 }
 
 .page {
-  max-width: 980px;
+  max-width: none;
   margin: 0 auto;
   padding: 40px 24px;
 }
 
 .nav {display; flex; flex-wrap: wrap; gap: 12px; margin-top: 0px; }
 .nav {display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 0px; }
+
+/* ---------- Small boxes at the top ---------- */
+.top-boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 24px;
+}
+
+.top-box {
+  margin: 0;
+  padding: 4px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: linear-gradient(#f4f4f4, #cdcdcd);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ---------- Projects box ---------- */
+.project {
+  display: flex;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px dotted var(--ink);
+}
+
+.projects:last-child { border-bottom: 0; }
+.project img { width: 110px; height: 110px; border: 1px solid var(--ink); flex-shrink: 0; }
+.project p {margin: 4px 0 8px; }
+
+.btn {
+  display: inline-block;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: var(--light);
+  padding: 3px 12px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.btn:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+/* ---------- Right column ---------- */
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var (--gap);
+}
+
+.side .window:last-child {
+  flex: 1;
+}
