@@ -93,13 +93,13 @@ p { margin: 0 0 10px; }
 /* ---------- Layout ---------- */
 .layout {
   display: grid;
-  grid-template-columns: 300px 1fr 1fr 300px;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: 300px 1fr 300px;
+  grid-template-rows: auto auto;
   grid-template-areas:
-      "profile projects  projects side"
-      "profile updates   currently side";
+      "profile    projects   side"
+      "prototypes prototypes prototypes";
   gap: var(--gap);
-  align-items: stretch;
+  align-items: start;
 }
 
 .layout > * { min-width: 0; }
@@ -109,6 +109,7 @@ p { margin: 0 0 10px; }
 .updates { grid-area: updates; }
 .currently { grid-area: currently; }
 .side { grid-area: side; }
+.prototypes { grid-area: prototypes; }
 
 /* ---------- Window boxes ---------- */
 .window {
@@ -184,10 +185,10 @@ p { margin: 0 0 10px; }
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-      "profile  profile"
-      "projects projects"
-      "updates   currently"
-      "side     side";
+      "profile    profile"
+      "projects   projects"
+      "side       side"
+      "prototypes prototypes";
     }
 }
 /* ---------- Half Page ---------- */
@@ -197,9 +198,8 @@ p { margin: 0 0 10px; }
     grid-template-areas:
       "profile"
       "projects"
-      "updates"
-      "currently"
-      "side";
+      "side"
+      "prototypes";
      }
 }
 
@@ -232,7 +232,7 @@ p { margin: 0 0 10px; }
 .page {
   max-width: none;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: 16px 24px 40px;
 }
 
 /* ---------- Small boxes at the top ---------- */
@@ -251,7 +251,7 @@ p { margin: 0 0 10px; }
   border-radius: 4px;
   background: linear-gradient(#f4f4f4, #cdcdcd);
   box-shadow: 3px 3px 0 var(--ink);
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -289,10 +289,6 @@ p { margin: 0 0 10px; }
   gap: var(--gap);
 }
 
-.side .window:last-child {
-  flex: 1;
-}
-
 /* ---------- 3D image reel ---------- */
 .stage {
   perspective: 2600px;
@@ -304,7 +300,7 @@ p { margin: 0 0 10px; }
 
 .ring {
   position: relative;
-  width: 70%;
+  width: 62%;
   aspect-ratio: 8 / 4;
   margin: 0 auto;
   transform-style: preserve-3d;
@@ -336,7 +332,7 @@ button.btn { font: inherit; cursor: pointer; }
   border: 2px solid var(--ink);
   border-radius: 4px;
   background: linear-gradient(#f4f4f4, #cdcdcd);
-  box-shadow: 3px 3px 0 var (--ink);
+  box-shadow: 3px 3px 0 var(--ink);
   font-weight: bold;
   letter-spacing: 1px;
   text-align: center;
@@ -348,5 +344,23 @@ a.reel-caption {
 }
 a.reel-caption:hover {
   transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--ink);
+  box-shadow: 1px 1px 0 var(--ink)
+}
+
+/* ---------- Prototypes Boxes ---------- */
+.prototypes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--gap);
+}
+
+.proto .content { padding: 10px; }
+
+.proto img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+  margin-bottom: 8px;
 }
