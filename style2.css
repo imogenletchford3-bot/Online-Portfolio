@@ -304,8 +304,8 @@ p { margin: 0 0 10px; }
 
 .ring {
   position: relative;
-  width: 50%;
-  aspect-ratio: 3 / 2;
+  width: 70%;
+  aspect-ratio: 8 / 4;
   margin: 0 auto;
   transform-style: preserve-3d;
   transition: transform 0.9s ease;
@@ -329,3 +329,24 @@ p { margin: 0 0 10px; }
 
 button.btn { font: inherit; cursor: pointer; }
 .projects .content {padding: 10px; }
+
+.reel-caption {
+  align-self: center;
+  padding: 3px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: linear-gradient(#f4f4f4, #cdcdcd);
+  box-shadow: 3px 3px 0 var (--ink);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+a.reel-caption {
+  color: var(--ink);
+  text-decoration: none;
+}
+a.reel-caption:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}

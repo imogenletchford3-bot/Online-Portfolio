@@ -72,16 +72,17 @@
                         <!--3D REEL-->
                         <div class="stage">
                             <div class="ring" id="ring">
-                                <img class="panel" src="https://placehold.co/260x180?text=Ice Cream" alt="Sanguis Noctis screenshot 1">
-                                <img class="panel" src="https://placehold.co/260x180?text=Cake" alt="Sanguis Noctis screenshot 2">
-                                <img class="panel" src="https://placehold.co/260x180?text=Pie" alt="Gear Shift Garrison screenshot 1">
-                                <img class="panel" src="https://placehold.co/260x180?text=Tart" alt="Gear Shift Garrison screenshot 2">
-                                <img class="panel" src="https://placehold.co/260x180?text=Brownie" alt="I don't have a third 1">
-                                <img class="panel" src="https://placehold.co/260x180?text=Pavalova" alt="I don't have a thrid 2">
+                                <img class="panel" src="Images/Sanguis_BRoll.png" data-title="Sanguis Noctis" data-link="sanguis-noctis.html" alt="Sanguis Noctis screenshot 1">
+                                <img class="panel" src="Images/Sanguis_TopDown.png" data-title="Sanguis Noctis" data-link="sanguis-noctis.html" alt="Sanguis Noctis screenshot 2">
+                                <img class="panel" src="Images/Sanguis_WinCutscene.png" data-title="Sanguis Noctis" data-link="sanguis-noctis.html" alt="Sanguis Noctis screenshot 3">
+                                <img class="panel" src="Images/GSG_FlowFields.png" data-title="Gear Shift Garrison" data-link ="sanguis-noctis.html" alt="Gear Shift Garrison screenshot 2">
+                                <img class="panel" src="Images/GSG_MiniMap.png" data-title="Gear Shift Garrison" data-link ="sanguis-noctis.html" alt="Gear Shift Garrison 2">
+                                <img class="panel" src="Images/GSG_UteFancier.png" data-title="Gear Shift Garrison" data-link ="sanguis-noctis.html" alt="Gear Shift Garrison 3">
                             </div>
                         </div>
                         <div class="reel-controls">
                             <button class="btn" id="prev">◀</button>
+                            <a class="reel-caption" id="caption" href="#"></a>
                             <button class="btn" id="next">▶</button>
                         </div>
                     </div> <!-- closes .content-->
@@ -140,25 +141,35 @@
 <script>
     const ring = document.getElementById("ring");
     const panels = ring.querySelectorAll(".panel");
+    const caption = document.getElementById("caption");
     const count = panels.length;
     const angle = 360 / count;
-    const width = 260;
-    const radius = Math.round(width / 2 / Math.tan(Math.PI / count));
+    const spread = 1.0;
     let current = 0;
+    let radius = 0;
 
-   panels.forEach((panel, i) => {
-        panel.style.transform = `rotateY(${i * angle}deg) translateZ(${-radius}px)`;
-    });
+    function layout() {
+        radius = Math.round(ring.offsetWidth / 2 / Math.tan(Math.PI / count) * spread);
+        panels.forEach((panel, i) => {
+            panel.style.transform = `rotateY(${i * angle}deg) translateZ(${-radius}px)`;
+        });
+        turn(current);
+    }
 
     function turn(n) {
         current = n;
         ring.style.transform = `translateZ(${radius}px) rotateY(${-current * angle}deg)`;
+
+        const front = ((current % count)+ count) % count;
+        caption.textContent = panels[front].dataset.title;
+        caption.href = panels[front].dataset.link;
     }
 
     document.getElementById("next").addEventListener("click", () => turn(current + 1));
     document.getElementById("prev").addEventListener("click", () => turn(current - 1));
 
-    turn(0);
+    layout();
+    window.addEventListener("resize", layout);
     setInterval(() => turn(current + 1), 4000);
 </script>
 
